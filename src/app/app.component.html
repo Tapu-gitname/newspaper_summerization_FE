@@ -1,0 +1,10 @@
+<div class="app-container">
+  <app-article-card
+    [title]="articles[currentIndex].title"
+    [image]="articles[currentIndex].image"
+    [summary]="articles[currentIndex].summary"
+    [fullText]="articles[currentIndex].full_text">
+  </app-article-card>
+
+  <button pButton type="button" class="btn btn-primary" label="Next Article" icon="pi pi-chevron-right" (click)="nextArticle()"></button>
+</div>

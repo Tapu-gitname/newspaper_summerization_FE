@@ -1,0 +1,18 @@
+<!-- src/app/article-card/article-card.component.html -->
+
+<p-card [header]="title" [style]="{'width': '500px', 'margin': '20px auto'}">
+    <!-- <ng-template pTemplate="header">
+      <img [src]="image" alt="Article Image" class="article-image">
+    </ng-template> -->
+    <p>{{ summary }}</p>
+    <div class="ui-g">
+      <button pButton type="button" class="btn btn-primary" label="Read Full Article" icon="pi pi-book" (click)="showFullArticle()"></button>
+      <!-- <button pButton type="button" label="Next Article" icon="pi pi-chevron-right" class="ui-button-secondary"></button> -->
+    </div>
+  </p-card>
+  
+  <p-dialog header="Full Article" [(visible)]="displayDialog" [modal]="true" [style]="{'width': '70vw'}">
+    <p>{{ fullText }}</p>
+    <button pButton type="button" label="Close" icon="pi pi-times" (click)="hideFullArticle()"></button>
+  </p-dialog>
+  
