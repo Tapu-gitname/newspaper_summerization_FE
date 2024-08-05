@@ -14,6 +14,7 @@ import { ArticleService } from './services/article.service';
 import { McqCardComponent } from './mcq-card/mcq-card.component';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { InputTextModule } from 'primeng/inputtext';
     DialogModule,
     HttpClientModule,
     FormsModule,
-    InputTextModule
+    InputTextModule,
+    NgxSpinnerModule
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]

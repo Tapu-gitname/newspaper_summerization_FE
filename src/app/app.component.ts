@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from './services/article.service';
 import { Article } from './models/article.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   articles: Article[] = [];  // Define articles as an array of Article
   currentIndex = 0;
   showMCQfield:boolean = false;
+  loading = true;
 
   // articles: Article[] = [
   //   {
@@ -44,13 +46,32 @@ export class AppComponent implements OnInit {
   //   }
   // ]
 
-  constructor(private service: ArticleService) { }
+  constructor(private service: ArticleService,
+    private spinner: NgxSpinnerService
+  ) { }
 
   ngOnInit(): void {
-    this.service.getArticles().subscribe((data: Article[]) => {
-      this.articles = data;
-      console.log(this.articles)
-    });
+    // this.service.getArticles().subscribe((data: Article[]) => {
+    //   this.articles = data;
+    //   console.log(this.articles)
+    // });
+    this.loadArticles()
+  }
+
+  loadArticles() {
+    this.spinner.show(); // Show spinner
+    this.service.getArticles().subscribe(
+      (data) => {
+        this.articles = data;
+        this.loading = false; // Set loading to false when data is loaded
+        this.spinner.hide(); // Hide spinner
+      },
+      (error) => {
+        console.error('Error loading articles:', error);
+        this.loading = false;
+        this.spinner.hide(); // Hide spinner on error as well
+      }
+    );
   }
 
   nextArticle() {

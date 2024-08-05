@@ -20,6 +20,7 @@
     "@angular/router": "^17.3.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "ngx-spinner": "^17.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^17.18.7",
     "rxjs": "~7.8.0",
