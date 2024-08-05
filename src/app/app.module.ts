@@ -11,11 +11,16 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleService } from './services/article.service';
+import { McqCardComponent } from './mcq-card/mcq-card.component';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    McqCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,8 @@ import { ArticleService } from './services/article.service';
     ButtonModule,
     DialogModule,
     HttpClientModule,
+    FormsModule,
+    InputTextModule
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]

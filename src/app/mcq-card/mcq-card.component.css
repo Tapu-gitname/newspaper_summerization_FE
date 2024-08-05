@@ -1,0 +1,40 @@
+.mcq-container {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    /* width: 50%; */
+  }
+  
+  .mcq-question {
+    font-size: 18px !important;
+    margin-bottom: 12px;
+  }
+  
+  .options {
+    margin-bottom: 12px;
+  }
+  
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  .feedback {
+    margin-top: 12px;
+    font-weight: bold;
+  }
+  
+  .correct {
+    color: green;
+  }
+  
+  .wrong {
+    color: red;
+  }
+  
+  .correct-answer {
+    color: green;
+    font-style: italic;
+  }
+  
