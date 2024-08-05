@@ -6,9 +6,9 @@
   </app-article-card>
 
   <div *ngIf="showMCQfield">
-    <div *ngFor="let mcq of articles[currentIndex]?.mcq">
-      <app-mcq-card [mcq]="mcq"></app-mcq-card>
-    </div>
+    <!-- <div *ngFor="let mcq of articles[currentIndex]?.mcq"> -->
+      <app-mcq-card [mcqs]="articles[currentIndex].mcq"></app-mcq-card>
+    <!-- </div> -->
   </div>
 
   <div class="d-flex">

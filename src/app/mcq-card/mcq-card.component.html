@@ -1,12 +1,12 @@
 <div class="mcq-container">
     <div class="mcq-question">
-      <h3>{{ mcq.question }}</h3>
+      <h3>{{ currentQuestion.question }}</h3>
     </div>
     
     <!-- MCQ with options -->
-    <div *ngIf="mcq.options; else typeAnswer">
+    <div *ngIf="currentQuestion.options; else typeAnswer">
       <div class="options">
-        <div *ngFor="let option of mcq.options">
+        <div *ngFor="let option of currentQuestion.options">
           <input pInputText type="radio" name="option" [(ngModel)]="selectedOption" [value]="option">
           <label>{{ option }}</label>
         </div>
@@ -26,13 +26,19 @@
     </div>
   
     <!-- Show Answer Button -->
-    <div *ngIf="!mcq.options && feedback.includes('try again')">
-      <p-button (click)="revealAnswer()">Show Answer</p-button>
+    <div *ngIf="!currentQuestion.options && feedback.includes('try again')">
+      <button (click)="revealAnswer()">Show Answer</button>
     </div>
   
     <!-- Display Correct Answer -->
     <div *ngIf="showCorrectAnswer">
-      <p class="correct-answer">Correct Answer: {{ mcq.answer }}</p>
+      <p class="correct-answer">Correct Answer: {{ currentQuestion.answer }}</p>
+    </div>
+  
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+      <button [disabled]="currentQuestionIndex === 0" (click)="previousQuestion()">Previous</button>
+      <button [disabled]="currentQuestionIndex === mcqs.length - 1" (click)="nextQuestion()">Next</button>
     </div>
   </div>
   
